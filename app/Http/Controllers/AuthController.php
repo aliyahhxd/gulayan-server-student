@@ -8,9 +8,6 @@ use App\Models\User;
 use Log;
 
 class AuthController extends Controller
-{
-    public function login(Request $request)
-    {
         public function login(Request $request)
     {
         $user = User::where('email', $request->email)->first();
@@ -20,7 +17,6 @@ class AuthController extends Controller
         }
 
         return response()->json(['user' => $user]);
-    }
     }
     
 }
