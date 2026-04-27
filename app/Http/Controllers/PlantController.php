@@ -9,44 +9,34 @@ use Carbon\Carbon;
 
 class PlantController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
   public function index()
   {
-    //TODO : implement load all the records
-    //TODO : implement pagination when loading all the records
+    // 🌱 Get records (with pagination)
+    return PlantModel::paginate(10);
   }
 
-  /**
-   * Store a newly created resource in storage.
-   */
   public function store(Request $request)
   {
-    //TODO: implement save record functionality
+    // 🌱 Save record
+    return PlantModel::create($request->all());
   }
 
-  /**
-   * Display the specified resource.
-   */
   public function show(PlantModel $plantController)
   {
-    //
+    return $plantController;
   }
 
-  /**
-   * Update the specified resource in storage.
-   */
   public function update(Request $request, PlantModel $plantController)
   {
-    //TODO : implement update record functionality
+    // 🌱 Update record
+    $plantController->update($request->all());
+
+    return $plantController;
   }
 
-  /**
-   * Remove the specified resource from storage.
-   */
   public function destroy(PlantModel $plant)
   {
-    //TODO : implement delete record functionality
+    // 🌱 Delete record
+    return PlantModel::destroy($plant->id);
   }
 }
